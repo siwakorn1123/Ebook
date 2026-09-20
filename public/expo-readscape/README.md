@@ -80,3 +80,20 @@ eas project:init
   ```bash
   eas submit -p ios
   ```
+
+---
+
+## ⚙️ การตั้งค่า CI/CD ด้วย GitHub Actions & EAS
+
+เราได้เตรียมไฟล์ Workflow ไว้ในโฟลเดอร์ `.github/workflows/`:
+1. **`eas-build.yml`**: รัน Type Check ตรวจสอบโค้ด, สั่ง EAS Build สำหรับ Android & iOS อัตโนมัติเมื่อ Push ไปยัง `main`, และส่งขึ้น Store อัตโนมัติ (EAS Submit)
+2. **`preview.yml`**: รัน Quality Check และอัปเดต Preview Build อัตโนมัติเมื่อมีการเปิด Pull Request
+
+### ขั้นตอนการตั้งค่า GitHub Secrets:
+1. ไปที่ [expo.dev/settings/access-tokens](https://expo.dev/settings/access-tokens) เพื่อสร้าง **Personal Access Token**
+2. ไปที่ GitHub Repository ของคุณ -> **Settings** -> **Secrets and variables** -> **Actions**
+3. กด **New repository secret**:
+   - Name: `EXPO_TOKEN`
+   - Value: นำ Expo Access Token ที่สร้างไว้มาวาง
+4. เมื่อคุณ `git push` โค้ดไปยังกิ่ง `main` ระบบ GitHub Actions จะสั่ง build ผ่าน Expo EAS ให้โดยอัตโนมัติทันที
+
