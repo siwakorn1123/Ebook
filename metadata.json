@@ -1,0 +1,7 @@
+{
+  "name": "Readscape",
+  "description": "Thai e-book store and reader application featuring curated collections, personal bookshelves, and literary previews.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
