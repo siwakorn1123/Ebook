@@ -30,6 +30,14 @@
       "expo-router"
     ],
     "scheme": "ebook",
-    "owner": "mooping06"
+    "owner": "mooping06",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "035761cd-eeea-4719-bb39-24e6f83c5d4c"
+      }
+    }
   }
 }
