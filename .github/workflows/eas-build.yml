@@ -10,12 +10,12 @@ on:
       platform:
         description: 'Platform to build'
         required: true
-        default: 'all'
+        default: 'android'
         type: choice
         options:
-          - all
           - android
           - ios
+          - all
       profile:
         description: 'EAS Build Profile'
         required: true
@@ -56,6 +56,6 @@ jobs:
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: |
-          PLATFORM="${{ github.event.inputs.platform || 'all' }}"
+          PLATFORM="${{ github.event.inputs.platform || 'android' }}"
           PROFILE="${{ github.event.inputs.profile || 'production' }}"
           eas build --platform $PLATFORM --profile $PROFILE --non-interactive
