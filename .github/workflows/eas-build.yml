@@ -53,6 +53,8 @@ jobs:
         run: npm install
 
       - name: 🏗️ Run EAS Build
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: |
           PLATFORM="${{ github.event.inputs.platform || 'all' }}"
           PROFILE="${{ github.event.inputs.profile || 'production' }}"
